@@ -48,30 +48,30 @@ class MainActivity : AppCompatActivity() {
         // NavigationRailView also tries to set its own padding based on the window insets, but it
         // cannot do that properly since the parent receives the insets first and will consume some
         // of them. We'll remove the rail's built-in listener and apply the padding ourselves.
-        binding.navigationRail?.let { navRail ->
-            binding.activityRoot.doOnApplyWindowInsets { v, insets, _, _ ->
-                val isRtl = v.isRtl
-                val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-                navRail.updatePadding(
-                    left = if (isRtl) 0 else systemBars.left,
-                    right = if (isRtl) systemBars.right else 0,
-                    top = systemBars.top,
-                    bottom = systemBars.bottom
-                )
-
-                // Consume either left or right insets, but not both.
-                WindowInsetsCompat.Builder(insets).setInsets(
-                    WindowInsetsCompat.Type.systemBars(),
-                    Insets.of(
-                        if (isRtl) systemBars.left else 0,
-                        systemBars.top,
-                        if (isRtl) 0 else systemBars.right,
-                        systemBars.bottom
-                    )
-                ).build()
-
-            }
-        }
+//        binding.navigationRail?.let { navRail ->
+//            binding.activityRoot.doOnApplyWindowInsets { v, insets, _, _ ->
+//                val isRtl = v.isRtl
+//                val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+//                navRail.updatePadding(
+//                    left = if (isRtl) 0 else systemBars.left,
+//                    right = if (isRtl) systemBars.right else 0,
+//                    top = systemBars.top,
+//                    bottom = systemBars.bottom
+//                )
+//
+//                // Consume either left or right insets, but not both.
+//                WindowInsetsCompat.Builder(insets).setInsets(
+//                    WindowInsetsCompat.Type.systemBars(),
+//                    Insets.of(
+//                        if (isRtl) systemBars.left else 0,
+//                        systemBars.top,
+//                        if (isRtl) 0 else systemBars.right,
+//                        systemBars.bottom
+//                    )
+//                ).build()
+//
+//            }
+//        }
 
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
@@ -79,14 +79,14 @@ class MainActivity : AppCompatActivity() {
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
-        binding.navigationRail?.apply {
-            setupWithNavController(navController)
-            setOnItemReselectedListener { } // Prevent navigating to the same item.
-            setOnApplyWindowInsetsListener(null) // See above about consuming window insets.
-
-            headerView?.setOnClickListener {
-                navController.navigate(R.id.nav_task_edit_graph)
-            }
-        }
+//        binding.navigationRail?.apply {
+//            setupWithNavController(navController)
+//            setOnItemReselectedListener { } // Prevent navigating to the same item.
+//            setOnApplyWindowInsetsListener(null) // See above about consuming window insets.
+//
+//            headerView?.setOnClickListener {
+//                navController.navigate(R.id.nav_task_edit_graph)
+//            }
+//        }
     }
 }
