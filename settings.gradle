@@ -14,5 +14,5 @@
  * limitations under the License.
  */
 
-include ':shared', ':app', ':app-compose'
+include ':shared', ':app'
 rootProject.name = "trackr"
